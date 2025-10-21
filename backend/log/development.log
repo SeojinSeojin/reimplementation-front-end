@@ -3361,3 +3361,37 @@ No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => 
 Completed 200 OK in 68ms (Views: 2.3ms | ActiveRecord: 7.9ms (8 queries, 0 cached) | GC: 16.7ms)
 
 
+DEPRECATION WARNING: `to_time` will always preserve the full timezone rather than offset of the receiver in Rails 8.1. To opt in to the new behavior, set `config.active_support.to_time_preserves_timezone = :zone`. (called from <main> at /Users/ashz/Documents/GitHub/reimplementation-front-end/backend/config/environment.rb:7)
+DEPRECATION WARNING: `to_time` will always preserve the full timezone rather than offset of the receiver in Rails 8.1. To opt in to the new behavior, set `config.active_support.to_time_preserves_timezone = :zone`. (called from <main> at /Users/ashz/Documents/GitHub/reimplementation-front-end/backend/config/environment.rb:7)
+Started POST "/login" for ::1 at 2025-10-20 22:01:19 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (3.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AuthenticationController#login as JSON
+  Parameters: {"user_name" => "admin2@example.com", "password" => "[FILTERED]", "authentication" => {"user_name" => "admin2@example.com", "password" => "[FILTERED]"}}
+Authorization Header: 
+Current User: 
+  [1m[36mRole Load (2.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`name` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:11:in 'AuthenticationController#login'
+  [1m[36mInstitution Load (4.9ms)[0m  [1m[34mSELECT `institutions`.* FROM `institutions` WHERE `institutions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:12:in 'AuthenticationController#login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 326ms (Views: 19.0ms | ActiveRecord: 37.5ms (5 queries, 0 cached) | GC: 16.5ms)
+
+
+Started GET "/participants/assignments/1" for ::1 at 2025-10-20 22:01:20 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/participants/assignments/1"):
+  
+Started GET "/participants/assignments/1" for ::1 at 2025-10-20 22:01:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/participants/assignments/1"):
+  
+Started GET "/participants/assignments/1" for ::1 at 2025-10-20 22:01:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/participants/assignments/1"):
+  

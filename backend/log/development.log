@@ -3395,3 +3395,297 @@ Started GET "/participants/assignments/1" for ::1 at 2025-10-20 22:01:31 -0400
   
 ActionController::RoutingError (No route matches [GET] "/participants/assignments/1"):
   
+DEPRECATION WARNING: `to_time` will always preserve the full timezone rather than offset of the receiver in Rails 8.1. To opt in to the new behavior, set `config.active_support.to_time_preserves_timezone = :zone`. (called from <main> at /Users/ashz/Documents/GitHub/reimplementation-front-end/backend/config/environment.rb:7)
+DEPRECATION WARNING: `to_time` will always preserve the full timezone rather than offset of the receiver in Rails 8.1. To opt in to the new behavior, set `config.active_support.to_time_preserves_timezone = :zone`. (called from <main> at /Users/ashz/Documents/GitHub/reimplementation-front-end/backend/config/environment.rb:7)
+Started POST "/login" for ::1 at 2025-10-22 19:06:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AuthenticationController#login as JSON
+  Parameters: {"user_name" => "admin2@example.com", "password" => "[FILTERED]", "authentication" => {"user_name" => "admin2@example.com", "password" => "[FILTERED]"}}
+Authorization Header: 
+Current User: 
+  [1m[36mRole Load (2.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`name` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 282ms (Views: 1.8ms | ActiveRecord: 25.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-10-22 19:06:19 -0400
+Processing by AuthenticationController#login as JSON
+  Parameters: {"user_name" => "admin2@example.com", "password" => "[FILTERED]", "authentication" => {"user_name" => "admin2@example.com", "password" => "[FILTERED]"}}
+Authorization Header: 
+Current User: 
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`name` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 241ms (Views: 0.3ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-10-22 19:06:23 -0400
+Processing by AuthenticationController#login as JSON
+  Parameters: {"user_name" => "admin2@example.com", "password" => "[FILTERED]", "authentication" => {"user_name" => "admin2@example.com", "password" => "[FILTERED]"}}
+Authorization Header: 
+Current User: 
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`name` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'admin2@example.com' LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:9:in 'AuthenticationController#login'
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:11:in 'AuthenticationController#login'
+  [1m[36mInstitution Load (0.6ms)[0m  [1m[34mSELECT `institutions`.* FROM `institutions` WHERE `institutions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/authentication_controller.rb:12:in 'AuthenticationController#login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.02ms)
+Completed 200 OK in 280ms (Views: 0.2ms | ActiveRecord: 8.3ms (5 queries, 0 cached) | GC: 16.2ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:06:26 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (4.2ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (10.9ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.63ms)
+Completed 200 OK in 78ms (Views: 2.2ms | ActiveRecord: 26.9ms (8 queries, 0 cached) | GC: 3.5ms)
+
+
+Started GET "/institutions" for ::1 at 2025-10-22 19:23:29 -0400
+Processing by InstitutionsController#index as JSON
+  [1m[36mUser Load (89.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mInstitution Load (18.7ms)[0m  [1m[34mSELECT `institutions`.* FROM `institutions`[0m
+  ↳ app/controllers/institutions_controller.rb:9:in 'InstitutionsController#index'
+No serializer found for resource: #<Institution id: 1, name: "North Carolina State University", created_at: "2025-10-20 00:20:18.807123000 +0000", updated_at: "2025-10-20 00:20:18.807123000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Institution::ActiveRecord_Relation (1.01ms)
+Completed 200 OK in 156ms (Views: 27.6ms | ActiveRecord: 133.3ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/institutions" for ::1 at 2025-10-22 19:23:35 -0400
+Processing by InstitutionsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mInstitution Load (0.2ms)[0m  [1m[34mSELECT `institutions`.* FROM `institutions`[0m
+  ↳ app/controllers/institutions_controller.rb:9:in 'InstitutionsController#index'
+No serializer found for resource: #<Institution id: 1, name: "North Carolina State University", created_at: "2025-10-20 00:20:18.807123000 +0000", updated_at: "2025-10-20 00:20:18.807123000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Institution::ActiveRecord_Relation (0.05ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 1.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:23:35 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (0.5ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (1.0ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.59ms)
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 5.5ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:25:35 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (15.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (0.6ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (0.5ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (1.47ms)
+Completed 200 OK in 58ms (Views: 3.3ms | ActiveRecord: 18.1ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:26:38 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (0.5ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (0.7ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.59ms)
+Completed 200 OK in 23ms (Views: 1.2ms | ActiveRecord: 6.1ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:26:39 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (0.2ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (1.2ms)
+Completed 200 OK in 15ms (Views: 1.9ms | ActiveRecord: 2.2ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:27:01 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.47ms)
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 3.4ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:28:05 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (1.2ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (11.1ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.6ms)
+Completed 200 OK in 69ms (Views: 1.5ms | ActiveRecord: 20.2ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/participants/assignment/1" for ::1 at 2025-10-22 19:29:15 -0400
+Processing by ParticipantsController#list_assignment_participants as JSON
+  Parameters: {"assignment_id" => "1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/jwt_token.rb:19:in 'JwtToken#authenticate_request!'
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZnVsbF9uYW1lIjoiYWRtaW4gYWRtaW4iLCJyb2xlIjoiU3VwZXIgQWRtaW5pc3RyYXRvciIsImluc3RpdHV0aW9uX2lkIjoxLCJleHAiOjE3NjEyNjA3ODN9.D7E_F6HN_Yn1Tz7CUvCeThXIRGG_cyy8gvhmXTVd_l4Z8tlpZPbRKdHDVA7S9tN1UM6YblqabR6Q9Gt5WvLoQ67Z_UfMpf1IVUSuYJWqA2OCC83jgXLcume4vBxwFtURDWX_9FPBYwBmotFRzQvSEoS8S1i-f42WvAOcSZG_7U3nAa9XNnZgAJMTA7E3StSSGI5F681MchEg-_42BwRhvkWcAW6dq1p0Zw7LXuR7e3oo_QGL6Dy7e4HZZG7jyAuBp6RBdlA4MZo45a3E93SvtVlq8SJfyIOKV-pToHtKcWBTV2qdPpkEBjY4kO1-xyvk5OqoVmdHnL9FjOxPc-mCZA
+Current User: #<User id: 1, name: "admin", password_digest: "$2a$12$Wo7LCxMjE44rufE0OFop/unJ5zduO6WDsoedekavQmu...", full_name: "admin admin", email: "admin2@example.com", mru_directory_path: nil, email_on_review: false, email_on_submission: false, email_on_review_of_review: false, is_new_user: true, master_permission_granted: false, handle: nil, persistence_token: nil, timeZonePref: nil, copy_of_emails: false, etc_icons_on_homepage: true, locale: nil, created_at: "2025-10-20 00:20:19.051175000 +0000", updated_at: "2025-10-20 00:20:19.051175000 +0000", institution_id: 1, role_id: 1, parent_id: nil>
+  [1m[36mRole Load (4.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`name` = 'Super Administrator' LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:37:in 'Authorization#has_privileges_of?'
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/concerns/authorization.rb:38:in 'Authorization#has_privileges_of?'
+  [1m[36mAssignment Load (1.5ms)[0m  [1m[34mSELECT `assignments`.* FROM `assignments` WHERE `assignments`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/participants_controller.rb:160:in 'ParticipantsController#find_assignment'
+  [1m[36mParticipant Load (8.0ms)[0m  [1m[34mSELECT `participants`.* FROM `participants` WHERE `participants`.`parent_id` = 1 AND `participants`.`type` = 'AssignmentParticipant' ORDER BY `participants`.`id` ASC[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 5[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (67, 68, 69)[0m
+  ↳ app/controllers/participants_controller.rb:32:in 'ParticipantsController#list_assignment_participants'
+No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => "2025-10-20T00:34:23.174Z", "updated_at" => "2025-10-20T00:34:23.174Z", "can_submit" => true, "can_review" => true, "handle" => "John S.", "permission_granted" => false, "join_team_request_id" => nil, "team_id" => nil, "topic" => nil, "current_stage" => nil, "stage_deadline" => nil, "can_take_quiz" => true, "can_mentor" => false, "authorization" => "submitter", "parent_id" => 1, "user" => {"id" => 52, "name" => "jsmith", "password_digest" => "$2a$12$9uu4zPuaTMqXhxWNiFI9TOY1fBtEX1jQrKzQQzhkM8IGaB/XzdCZi", "full_name" => "Smith, John", "email" => "jsmith@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:34:23.169Z", "updated_at" => "2025-10-20T00:43:44.503Z", "institution_id" => 1, "role_id" => 5, "parent_id" => 67, "role" => {"id" => 5, "name" => "Student", "parent_id" => 4, "default_page_id" => nil, "created_at" => "2025-10-19T20:20:07.000Z", "updated_at" => "2025-10-19T20:20:07.000Z"}, "parent" => {"id" => 67, "name" => "efg", "password_digest" => "$2a$12$d3Iu68SMmpr3gDKd9mKlUOE85D/O/EoIsel0bzkSoD1gPyZnHgEEy", "full_name" => "Garcia, Emily", "email" => "efg@ncsu.edu", "mru_directory_path" => nil, "email_on_review" => false, "email_on_submission" => false, "email_on_review_of_review" => false, "is_new_user" => true, "master_permission_granted" => false, "handle" => nil, "persistence_token" => nil, "timeZonePref" => nil, "copy_of_emails" => false, "etc_icons_on_homepage" => true, "locale" => nil, "created_at" => "2025-10-20T00:43:44.044Z", "updated_at" => "2025-10-20T00:43:44.556Z", "institution_id" => 1, "role_id" => 3, "parent_id" => 67}}}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.72ms)
+Completed 200 OK in 116ms (Views: 14.7ms | ActiveRecord: 19.5ms (8 queries, 0 cached) | GC: 0.0ms)
+
+

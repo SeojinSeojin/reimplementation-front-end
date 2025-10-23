@@ -3855,3 +3855,5 @@ No serializer found for resource: {"id" => 11, "user_id" => 52, "created_at" => 
 Completed 200 OK in 65ms (Views: 1.6ms | ActiveRecord: 23.0ms (8 queries, 0 cached) | GC: 0.5ms)
 
 
+DEPRECATION WARNING: `to_time` will always preserve the full timezone rather than offset of the receiver in Rails 8.1. To opt in to the new behavior, set `config.active_support.to_time_preserves_timezone = :zone`. (called from <main> at /Users/ashz/Documents/GitHub/reimplementation-front-end/backend/config/environment.rb:7)
+DEPRECATION WARNING: `to_time` will always preserve the full timezone rather than offset of the receiver in Rails 8.1. To opt in to the new behavior, set `config.active_support.to_time_preserves_timezone = :zone`. (called from <main> at /Users/ashz/Documents/GitHub/reimplementation-front-end/backend/config/environment.rb:7)

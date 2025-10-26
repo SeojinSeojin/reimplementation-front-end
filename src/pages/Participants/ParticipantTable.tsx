@@ -18,7 +18,6 @@ const ParticipantTable: React.FC<ParticipantTableProps> = ({
   onRoleChange,
   onRemoveClick,
 }) => {
-  const hasHandles = participants.some((p) => p.handle);
   if (isLoading) {
     return (
       <Card
@@ -126,22 +125,6 @@ const ParticipantTable: React.FC<ParticipantTableProps> = ({
               >
                 Name
               </th>
-              {hasHandles && (
-                <th
-                  style={{
-                    color: "#374151",
-                    fontWeight: 600,
-                    fontSize: "0.75rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    padding: "1rem",
-                    borderBottom: "2px solid #e5e7eb",
-                    verticalAlign: "middle",
-                  }}
-                >
-                  Handles
-                </th>
-              )}
               <th
                 style={{
                   color: "#374151",
@@ -258,23 +241,29 @@ const ParticipantTable: React.FC<ParticipantTableProps> = ({
                   </div>
                 </td>
                 <td style={{ padding: "1rem", verticalAlign: "middle" }}>
-                  <div
-                    style={{
-                      color: "#111827",
-                      fontSize: "0.875rem",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {prettyName(p.full_name ?? "")}
+                  <div>
+                    <div
+                      style={{
+                        color: "#111827",
+                        fontSize: "0.875rem",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {prettyName(p.full_name ?? "")}
+                    </div>
+                    {p.handle && (
+                      <div
+                        style={{
+                          color: "#a0aec0",
+                          fontSize: "0.75rem",
+                          marginTop: "0.15rem",
+                        }}
+                      >
+                        @{p.handle}
+                      </div>
+                    )}
                   </div>
                 </td>
-                {hasHandles && (
-                  <td style={{ padding: "1rem", verticalAlign: "middle" }}>
-                    <span style={{ color: "#6b7280", fontSize: "0.875rem" }}>
-                      {p.handle || "—"}
-                    </span>
-                  </td>
-                )}
                 <td style={{ padding: "1rem", verticalAlign: "middle" }}>
                   <span style={{ color: "#6b7280", fontSize: "0.875rem" }}>{p.email ?? ""}</span>
                 </td>
@@ -327,7 +316,6 @@ const ParticipantTable: React.FC<ParticipantTableProps> = ({
                 >
                   <Button
                     className="btn btn-md"
-                    variant="danger"
                     title="Remove participant"
                     onClick={() => onRemoveClick(p)}
                     style={{
@@ -337,6 +325,9 @@ const ParticipantTable: React.FC<ParticipantTableProps> = ({
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",
+                      border: "none",
+                      outline: "none",
+                      backgroundColor: "transparent",
                     }}
                   >
                     <img
